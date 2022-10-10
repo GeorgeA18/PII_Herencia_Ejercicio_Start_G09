@@ -1,4 +1,5 @@
 using System;
+using TwitterUCU;
 
 namespace RideShare;
 
@@ -14,50 +15,46 @@ namespace RideShare;
 
 // ---------------------------
 // + Login()
-// + DeleteUser()
-// ?+ RateUser()
+// + RateUser()
 // ---------------------------
 
 // 
 public class ConductorPool : User
 {
-    public string Name { get; set; }
+    string Name { get; set; }
     string LastName { get; set; }
     string CI { get; set; }
     string Vehiculo { get; set; }
-    public override Rating Rating { get; set; }
+    public Rating Rating { get; set; }
     string Bio { get; set; }
     int ID { get;}
     string Password { get; set; }
+    int MaxPassenger {get;set;}
 
-    public ConductorPool(string name, string lastName, string ci, string vehiculo, string bio, string password)
+    public ConductorPool(string name, string lastName, string ci, string vehiculo, string password, string bio,int maxPassenger)
     {
         this.Name = name;
         this.LastName = lastName;
         this.CI = ci;
+        this.Password = password;
         this.Vehiculo = vehiculo;
         this.Bio = bio;
-        this.Password = password;
-
         this.Rating = new Rating();
-
+        this.MaxPassenger = maxPassenger;
         this.ID = Register.AddConductorPool(this);
 
     }
 
-    public override void Login()
+    public string GetBio()
     {
-
+        return this.Bio;
     }
-    public override void RateUser(User user, int rating)
+    public override void PostOnTwitter()
     {
-        user.Rating.AddRating(rating);
-        Console.WriteLine($"El promedio de calificaciones de {user.getName()} es {user.Rating.AverageRating}");
+        var twitter = new TwitterImage();
+        Console.WriteLine(twitter.PublishToTwitter($"New Employee, Welcome {this.Name}! Bio: {this.Bio}.", @"CambiodeCielo2.jpg"));
+
+        var twitterDirectMessage = new TwitterMessage();
+        Console.WriteLine(twitterDirectMessage.SendMessage("Hello I am a new Conductor!", "846862265022328832"));
     }
-
-    public override string getName()
-    {
-        return this.Name;
-    } 
-
 }

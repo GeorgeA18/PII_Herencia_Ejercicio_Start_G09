@@ -1,4 +1,5 @@
 using System;
+using TwitterUCU;
 
 namespace RideShare;
 
@@ -13,8 +14,8 @@ namespace RideShare;
 
 // ---------------------------
 // + Login()
-// + DeleteUser()
-// ?+ RateUser()
+// + RateUser()
+// + GetNombre()
 // ---------------------------
 
 /* 
@@ -30,19 +31,29 @@ public abstract class User
 {
     // * Atributos
     string Name { get; set; }
-    string lastName { get; set; }
+    string LastName { get; set; }
     string CI { get; set; }
-    string Vehiculo { get; set; }
-    public abstract Rating Rating { get; set; }
+    Rating Rating { get; set; }
+
     int ID { get; }
     string Password { get; set; }
 
     // * Metodos
-    public abstract void Login();
-    public virtual void RateUser(User user,int rating)
+    public void Login()
+    {
+
+    }
+    public void RateUser(User user, int rating)
     {
         user.Rating.AddRating(rating);
+
+        Console.WriteLine($"El promedio de calificaciones de {user.GetName()} es {user.Rating.AverageRating}");
     }
 
-    public abstract string getName();
+    public string GetName()
+    {
+        return this.Name;
+    }
+
+    public abstract void PostOnTwitter();
 }

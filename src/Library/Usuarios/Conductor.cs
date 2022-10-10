@@ -1,4 +1,5 @@
 using System;
+using TwitterUCU;
 
 namespace RideShare;
 
@@ -15,49 +16,44 @@ namespace RideShare;
 // ---------------------------
 // + Login()
 // + DeleteUser()
-// ?+ RateUser()
+// + RateUser()
 // ---------------------------
 
 // 
 public class Conductor : User
 {
-    public string Name { get; set; }
+    string Name { get; set; }
     string LastName { get; set; }
     string CI { get; set; }
     string Vehiculo { get; set; }
-    public override Rating Rating { get; set; }
+    public Rating Rating { get; set; }
     string Bio { get; set; }
     int ID { get; }
     string Password { get; set; }
 
-    public Conductor(string name, string lastName, string ci, string vehiculo, string bio, string password)
+    public Conductor(string name, string lastName, string ci, string vehiculo, string password, string bio)
     {
         this.Name = name;
         this.LastName = lastName;
         this.CI = ci;
+        this.Password = password;
         this.Vehiculo = vehiculo;
         this.Bio = bio;
-        this.Password = password;
-
         this.Rating = new Rating();
-
         this.ID = Register.AddConductor(this);
 
     }
-
-    public override void Login()
+    public string GetBio()
     {
-
-    }
-    public override void RateUser(User user, int rating)
-    {
-        user.Rating.AddRating(rating);
-        Console.WriteLine($"El promedio de calificaciones de {user.getName()} es {user.Rating.AverageRating}");
+        return this.Bio;
     }
 
-    public override string getName()
+    public override void PostOnTwitter()
     {
-        return this.Name;
-    }
+        var twitter = new TwitterImage();
+        Console.WriteLine(twitter.PublishToTwitter($"New Employee, Welcome {this.Name}! Bio: {this.Bio}.", @"CambiodeCielo2.jpg"));
 
+        var twitterDirectMessage = new TwitterMessage();
+        Console.WriteLine(twitterDirectMessage.SendMessage("Hello I am a new Conductor!", "846862265022328832"));
+    }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TwitterUCU;
 
 namespace RideShare;
 
@@ -38,19 +39,23 @@ public class Register
     public static int AddPassenger(Passenger passenger)
     {
         PassengersList.Add(passenger);
+        passenger.PostOnTwitter();
         return GeneratingID();
     }
 
     public static int AddConductor(Conductor conductor)
     {
         ConductorsList.Add(conductor);
+        conductor.PostOnTwitter();
         return GeneratingID();
     }
 
-    public static int AddConductorPool(ConductorPool conductor)
+    public static int AddConductorPool(ConductorPool conductorPool)
     {
-        ConductorsPoolList.Add(conductor);
+        ConductorsPoolList.Add(conductorPool);
+        conductorPool.PostOnTwitter();
         return GeneratingID();
     }
+
 
 }
