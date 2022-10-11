@@ -4,15 +4,6 @@ using System.Linq;
 
 namespace RideShare;
 
-//           UML
-// ---------------------------
-// + Ratings : List<int>
-// + AverageRating : int
-// ---------------------------
-// + GetAverageRating()
-// + AddRating()
-// ---------------------------
-
 public class Rating
 {
     List<int> Ratings { get; set; }

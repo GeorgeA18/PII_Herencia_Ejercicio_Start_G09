@@ -4,21 +4,6 @@ using TwitterUCU;
 
 namespace RideShare;
 
-//           UML
-// ---------------------------
-// + GeneratedID: int
-// + PassengersList: List<Passenger>
-// + ConductorsList: List<Conductor>
-// + ConductorsPoolList: List<ConductorPool>
-// ---------------------------
-// + SaveData()
-// + ValidateData()
-
-// + GeneratingID()
-// + AddPassenger()
-// + AddConductor()
-// + AddConductorPool()
-// ---------------------------
 
 // 
 public class Register

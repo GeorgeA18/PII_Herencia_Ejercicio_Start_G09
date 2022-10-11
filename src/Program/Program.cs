@@ -10,21 +10,11 @@ namespace RideShare
         {
 
             Passenger passenger1 = new Passenger("Jorge", "Avila", "123", "0000");
-            // Passenger passenger2 = new Passenger("Jose", "Avila", "123", "Ford", "0000");
 
             Conductor conductor1 = new Conductor("Maria", "Avila", "456", "Ford", "0000","Soy un increible conductor");
-            // Conductor conductor2 = new Conductor("Pedro", "Avila", "456", "Ford", "0000","Soy un increible conductor");
 
+            ConductorPool conductorPool1 = new ConductorPool("Patricia", "Avila", "456", "Ford", "0000", "Conduzco mejor con musica.", 2);
 
-            // ConductorPool conductorPool1 = new ConductorPool("Patricia", "Avila", "456", "Ford", "0000", "Conduzco mejor con musica.", 2);
-            // ConductorPool conductorPool2 = new ConductorPool("Gabriel", "Avila", "456", "Ford", "0000", "Soy un increible conductor", 2);
-
-
-
-
-            // passenger1.RateUser(conductor1, 5);
-            // passenger1.RateUser(conductor1, 3);
-            // passenger1.RateUser(conductor1, 1);
 
 
 

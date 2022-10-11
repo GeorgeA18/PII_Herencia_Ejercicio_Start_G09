@@ -3,22 +3,6 @@ using TwitterUCU;
 
 namespace RideShare;
 
-//           UML
-// ---------------------------
-// + ID: int 
-// + Name: String
-// + lastName: String
-// + CI: string
-// + Vehiculo: string
-// + Rating: Rating
-
-// ---------------------------
-// + Login()
-// + DeleteUser()
-// ?+ RateUser()
-// ---------------------------
-
-// 
 public class Passenger : User
 {
     string Name { get; set; }

@@ -3,32 +3,16 @@ using TwitterUCU;
 
 namespace RideShare;
 
-//           UML
-// ---------------------------
-// + ID: int 
-// + Name: String
-// + lastName: String
-// + CI: string
-// + Vehiculo: string
-// + Bio: string
-// + Rating: Rating
-
-// ---------------------------
-// + Login()
-// + RateUser()
-// ---------------------------
-
-// 
 public class ConductorPool : User
 {
     string Name { get; set; }
     string LastName { get; set; }
     string CI { get; set; }
-    string Vehiculo { get; set; }
     public Rating Rating { get; set; }
-    string Bio { get; set; }
     int ID { get;}
     string Password { get; set; }
+    string Vehiculo { get; set; }
+    string Bio { get; set; }
     int MaxPassenger {get;set;}
 
     public ConductorPool(string name, string lastName, string ci, string vehiculo, string password, string bio,int maxPassenger)
