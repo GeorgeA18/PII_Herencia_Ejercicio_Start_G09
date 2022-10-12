@@ -12,7 +12,7 @@ public abstract class User
     string CI { get; set; }
     Rating Rating { get; set; }
     string Password { get; set; }
-
+    string PicPath{get; set;}
 
     public void RateUser(User user, int rating)
     {

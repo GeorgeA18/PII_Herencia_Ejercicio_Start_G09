@@ -1,4 +1,4 @@
-namespace CognitiveCoreUCU
+namespace RideShare
 {
     public class CognitiveApiSecrets
     {

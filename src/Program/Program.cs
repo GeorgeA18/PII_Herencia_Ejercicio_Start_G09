@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections;
 using TwitterUCU;
-
+using System.Drawing;
 namespace RideShare
 {
     class Program
     {
         static void Main(string[] args)
         {
+            //Si no se agrega un path a una imagen al final, se pone la default
+            Passenger passenger1 = new Passenger("Gary", "Stu", "123", "0000", "tit6.jpg");
 
-            Passenger passenger1 = new Passenger("Jorge", "Avila", "123", "0000");
+            Conductor conductor1 = new Conductor("Mary", "Stu", "456", "Ford", "0000","Soy un increible conductor", "piba.jpg");
 
-            Conductor conductor1 = new Conductor("Maria", "Avila", "456", "Ford", "0000","Soy un increible conductor");
-
-            ConductorPool conductorPool1 = new ConductorPool("Patricia", "Avila", "456", "Ford", "0000", "Conduzco mejor con musica.", 2);
+            ConductorPool conductorPool1 = new ConductorPool("John", "Doe", "456", "Ford", "0000", "Conduzco mejor con musica.", 2, "Cruise.jpg");
 
             RideShare rideShare = new RideShare();
 

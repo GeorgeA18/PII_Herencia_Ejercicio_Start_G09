@@ -1,6 +1,6 @@
 using System;
 using TwitterUCU;
-
+using System.Drawing;
 namespace RideShare;
 
 public class ConductorPool : User, IConductor
@@ -13,8 +13,8 @@ public class ConductorPool : User, IConductor
     public string Vehicle { get; set; }
     public string Bio { get; set; }
     public int MaxPassenger {get;set;}
-
-    public ConductorPool(string name, string lastName, string ci, string vehicle, string password, string bio, int maxPassenger)
+    string PicPath{get; set;}
+    public ConductorPool(string name, string lastName, string ci, string vehicle, string password, string bio, int maxPassenger, string PicPath="default.png")
     {
         this.Name = name;
         this.LastName = lastName;
@@ -24,7 +24,7 @@ public class ConductorPool : User, IConductor
         this.Bio = bio;
         this.Rating = new Rating();
         this.MaxPassenger = maxPassenger;
-
+        this.PicPath=PicPath;
     }
 
     public string GetBio()
@@ -33,8 +33,16 @@ public class ConductorPool : User, IConductor
     }
     public override void PostOnTwitter()
     {
+        //Solo si tiene cara y sonrisa se deja la foto que haya ingresado el usuario, sino se cambia por una default
+        CognitiveFace cog = new CognitiveFace(true, Color.GreenYellow);
+        cog.Recognize(this.PicPath);
+        bool FaceAndSmile = FaceAndSmiles.FoundFace(cog, true);
+        if(!FaceAndSmile){
+            this.PicPath="default.png";
+        }
+
         var twitter = new TwitterImage();
-        Console.WriteLine(twitter.PublishToTwitter($"New Employee, Welcome {this.Name}! Bio: {this.Bio}.", @"CambiodeCielo2.jpg"));
+        Console.WriteLine(twitter.PublishToTwitter($"New Employee, Welcome {this.Name}! Bio: {this.Bio}.", this.PicPath));
 
         var twitterDirectMessage = new TwitterMessage();
         Console.WriteLine(twitterDirectMessage.SendMessage("Hello I am a new Conductor!", "846862265022328832"));
