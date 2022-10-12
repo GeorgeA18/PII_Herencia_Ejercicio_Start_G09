@@ -8,10 +8,11 @@ namespace RideShare
     {
         static void Main(string[] args)
         {
-            //Si no se agrega un path a una imagen al final, se pone la default
-            Passenger passenger1 = new Passenger("Gary", "Stu", "123", "0000", "tit6.jpg");
+            //Si no se pasa un path para la imagen, se pone la default
+            //pasto.jpg es una foto de pasto, muchacha.jpg es una muchacha sin sonreir, y Cruise.jpg aparece Cruise riendo
+            Passenger passenger1 = new Passenger("Gary", "Stu", "123", "0000", "pasto.jpg");
 
-            Conductor conductor1 = new Conductor("Mary", "Stu", "456", "Ford", "0000","Soy un increible conductor", "piba.jpg");
+            Conductor conductor1 = new Conductor("Mary", "Stu", "456", "Ford", "0000","Soy un increible conductor", "muchacha.jpg");
 
             ConductorPool conductorPool1 = new ConductorPool("John", "Doe", "456", "Ford", "0000", "Conduzco mejor con musica.", 2, "Cruise.jpg");
 
