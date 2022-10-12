@@ -15,9 +15,11 @@ namespace RideShare
 
             ConductorPool conductorPool1 = new ConductorPool("Patricia", "Avila", "456", "Ford", "0000", "Conduzco mejor con musica.", 2);
 
+            RideShare rideShare = new RideShare();
 
-
-
+            rideShare.AddConductor(conductor1);
+            rideShare.AddConductor(conductorPool1);
+            rideShare.AddPassenger(passenger1);
 
 
             /*
