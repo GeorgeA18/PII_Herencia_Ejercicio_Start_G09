@@ -25,7 +25,6 @@ public class Rating
     
     public int GetAverageRating()
     {
-        // Console.WriteLine(this.AverageRating);
         return this.AverageRating;
 
     }

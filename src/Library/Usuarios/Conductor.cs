@@ -3,27 +3,29 @@ using TwitterUCU;
 
 namespace RideShare;
 
-public class Conductor : User
+public class Conductor : User, IConductor
 {
     string Name { get; set; }
     string LastName { get; set; }
     string CI { get; set; }
     public Rating Rating { get; set; }
-    int ID { get; }
     string Password { get; set; }
-    string Vehiculo { get; set; }
-    string Bio { get; set; }
+    public string Vehicle { get; set; }
+    public string Bio { get; set; }
+    public int MaxPassenger {get; set;}
 
-    public Conductor(string name, string lastName, string ci, string vehiculo, string password, string bio)
+
+    //MaxPassenger se inicializa siempre en 1, siendo que este tipo de conductores solo pueden llevar 1 pasajero
+    public Conductor(string name, string lastName, string ci, string vehicle, string password, string bio)
     {
         this.Name = name;
         this.LastName = lastName;
         this.CI = ci;
         this.Password = password;
-        this.Vehiculo = vehiculo;
+        this.Vehicle = vehicle;
         this.Bio = bio;
         this.Rating = new Rating();
-        this.ID = Register.AddConductor(this);
+        this.MaxPassenger = 1;
 
     }
     public string GetBio()

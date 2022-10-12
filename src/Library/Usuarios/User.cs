@@ -11,8 +11,6 @@ public abstract class User
     string LastName { get; set; }
     string CI { get; set; }
     Rating Rating { get; set; }
-
-    int ID { get; }
     string Password { get; set; }
 
 

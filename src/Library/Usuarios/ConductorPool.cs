@@ -3,29 +3,27 @@ using TwitterUCU;
 
 namespace RideShare;
 
-public class ConductorPool : User
+public class ConductorPool : User, IConductor
 {
     string Name { get; set; }
     string LastName { get; set; }
     string CI { get; set; }
     public Rating Rating { get; set; }
-    int ID { get;}
     string Password { get; set; }
-    string Vehiculo { get; set; }
-    string Bio { get; set; }
-    int MaxPassenger {get;set;}
+    public string Vehicle { get; set; }
+    public string Bio { get; set; }
+    public int MaxPassenger {get;set;}
 
-    public ConductorPool(string name, string lastName, string ci, string vehiculo, string password, string bio,int maxPassenger)
+    public ConductorPool(string name, string lastName, string ci, string vehicle, string password, string bio, int maxPassenger)
     {
         this.Name = name;
         this.LastName = lastName;
         this.CI = ci;
         this.Password = password;
-        this.Vehiculo = vehiculo;
+        this.Vehicle = vehicle;
         this.Bio = bio;
         this.Rating = new Rating();
         this.MaxPassenger = maxPassenger;
-        this.ID = Register.AddConductorPool(this);
 
     }
 
